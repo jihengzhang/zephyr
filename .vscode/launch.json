@@ -18,7 +18,7 @@
             "device": "nrf5340_xxaa_app",
             "interface": "swd",
             "runToEntryPoint": "main",
-            "preLaunchTask": "west build",
+            // "preLaunchTask": "west build",
             "svdFile": "${workspaceFolder}/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd",
             "armToolchainPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin",
             "gdbPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-gdb.exe",

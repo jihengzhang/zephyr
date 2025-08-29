@@ -1627,7 +1627,7 @@ struct net_buf *bt_conn_create_pdu_timeout(struct net_buf_pool *pool,
 	}
 
 	if (!buf) {
-		LOG_WRN("Unable to allocate buffer within timeout");
+		LOG_DBG("Unable to allocate buffer within timeout");
 		return NULL;
 	}
 
@@ -2875,6 +2875,10 @@ int bt_conn_get_info(const struct bt_conn *conn, struct bt_conn_info *info)
 #if defined(CONFIG_BT_CLASSIC)
 	case BT_CONN_TYPE_BR:
 		info->br.dst = &conn->br.dst;
+		return 0;
+	case BT_CONN_TYPE_SCO:
+		info->sco.air_mode = conn->sco.air_mode;
+		info->sco.link_type = conn->sco.link_type;
 		return 0;
 #endif
 #if defined(CONFIG_BT_ISO)

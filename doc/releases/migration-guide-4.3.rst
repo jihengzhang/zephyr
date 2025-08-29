@@ -34,6 +34,8 @@ Boards
 * NXP ``frdm_mcxa166`` is renamed to ``frdm_mcxa346``.
 * NXP ``frdm_mcxa276`` is renamed to ``frdm_mcxa266``.
 
+* Panasonic ``panb511evb`` is renamed to ``panb611evb``.
+
 Device Drivers and Devicetree
 *****************************
 
@@ -95,6 +97,12 @@ Bluetooth Audio
 
 .. zephyr-keep-sorted-stop
 
+Bluetooth HCI
+=============
+
+* The deprecated ``ipm`` value was removed from ``bt-hci-bus`` devicetree property.
+  ``ipc`` should be used instead.
+
 Ethernet
 ========
 
@@ -145,6 +153,27 @@ Logging
   more generic script of :zephyr_file:`scripts/logging/dictionary/live_log_parser.py` should be
   used. The new script supports the same functionality (and more), but requires different command
   line arguments when invoked.
+
+Secure storage
+==============
+
+* The size of :c:type:`psa_storage_uid_t`, used to identify storage entries, was changed from 64 to
+  30 bits.
+  This change breaks backward compatibility with previously stored entries for which authentication
+  will start failing.
+  Enable :kconfig:option:`CONFIG_SECURE_STORAGE_64_BIT_UID` if you are updating an existing
+  installation from an earlier version of Zephyr and want to keep the pre-existing entries.
+  (:github:`94171`)
+
+Shell
+=====
+
+* The MQTT topics related to :kconfig:option:`SHELL_BACKEND_MQTT` have been renamed. Renamed
+  ``<device_id>_rx`` to ``<device_id>/sh/rx`` and ``<device_id>_tx`` to ``<device_id>/sh/rx``. The
+  part after the ``<device_id>`` is now configurable via :kconfig:option:`SHELL_MQTT_TOPIC_RX_ID`
+  and :kconfig:option:`SHELL_MQTT_TOPIC_TX_ID`. This allows keeping the previous topics for backward
+  compatibility.
+  (:github:`92677`).
 
 .. zephyr-keep-sorted-stop
 

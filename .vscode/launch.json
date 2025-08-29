@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "nrf-connect",
+            "request": "launch",
+            "name": "Launch nRF Connect application",
+            "config": ""
+        },
+
+        {
+            "name": "nRF5340 Debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "servertype": "jlink",
+            "device": "nrf5340_xxaa_app",
+            "interface": "swd",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "west build",
+            "svdFile": "${workspaceFolder}/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd",
+            "armToolchainPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin",
+            "gdbPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-gdb.exe",
+            "objdumpPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-objdump.exe",
+            "nmPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-nm.exe",
+            "serverpath": "C:\\Program Files\\SEGGER\\JLink_V862\\JLinkGDBServerCL.exe",
+            "showDevDebugOutput": "parsed"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "west build",
+            "type": "shell",
+            "command": "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\' && west",
+            "args": [
+                "build",
+                "-p",
+                "always",
+                "-b",
+                "nrf5340_audio_dk/nrf5340/cpuapp",  //nrf5340_audio_dk/nrf5340/cpuapp
+                "samples/basic/blinky",
+                "--",
+                "-DCONFIG_DEBUG=y",
+                "-DCONFIG_NO_OPTIMIZATIONS=y"
+            ],
+            "options": {
+                "env": {
+                    "ZEPHYR_BASE": "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr",
+                    "ZEPHYR_SDK_INSTALL_DIR": "C:\\Users\\212597558\\zephyr-sdk-0.17.2"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}

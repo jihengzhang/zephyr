@@ -13,35 +13,50 @@
 
 /* The devicetree node identifier for the "led0" alias. */
 #define LED0_NODE DT_ALIAS(led0)
+#define LED1_NODE DT_ALIAS(led1)
+#define LED2_NODE DT_ALIAS(led2)
 
 /*
  * A build error on this line means your board is unsupported.
  * See the sample documentation for information on how to fix this.
  */
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+static const struct gpio_dt_spec led_r = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+static const struct gpio_dt_spec led_g = GPIO_DT_SPEC_GET(LED1_NODE, gpios);
+static const struct gpio_dt_spec led_b = GPIO_DT_SPEC_GET(LED2_NODE, gpios);
 
 int main(void)
 {
 	int ret;
 	bool led_state = true;
 
-	if (!gpio_is_ready_dt(&led)) {
+	if (!gpio_is_ready_dt(&led_r)) {
 		return 0;
 	}
 
-	ret = gpio_pin_configure_dt(&led, GPIO_OUTPUT_ACTIVE);
+	ret = gpio_pin_configure_dt(&led_r, GPIO_OUTPUT_INACTIVE);
+	ret = gpio_pin_configure_dt(&led_g, GPIO_OUTPUT_INACTIVE);
+	ret = gpio_pin_configure_dt(&led_b, GPIO_OUTPUT_INACTIVE);
 	if (ret < 0) {
 		return 0;
 	}
 
 	while (1) {
-		ret = gpio_pin_toggle_dt(&led);
+		ret = gpio_pin_toggle_dt(&led_r); //rgb = 100
 		if (ret < 0) {
 			return 0;
 		}
 
 		led_state = !led_state;
 		printf("LED state: %s\n", led_state ? "ON" : "OFF");
+		k_msleep(SLEEP_TIME_MS);
+		gpio_pin_toggle_dt(&led_r); //rgb = 010
+		gpio_pin_toggle_dt(&led_g);
+		k_msleep(SLEEP_TIME_MS);
+		gpio_pin_toggle_dt(&led_g); //rgb = 001
+		gpio_pin_toggle_dt(&led_b);
+		k_msleep(SLEEP_TIME_MS);
+		gpio_pin_toggle_dt(&led_b); //rgb = 000
+		// gpio_pin_toggle_dt(&led_r);
 		k_msleep(SLEEP_TIME_MS);
 	}
 	return 0;

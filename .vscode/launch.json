@@ -2,14 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "nrf-connect",
-            "request": "launch",
-            "name": "Launch nRF Connect application",
-            "config": ""
-        },
-
-        {
-            "name": "nRF5340 Debug",
+            "name": "1st nRF5340 cortex-Debug",
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -19,13 +12,45 @@
             "interface": "swd",
             "runToEntryPoint": "main",
             // "preLaunchTask": "west build",
-            "svdFile": "${workspaceFolder}/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd",
+            "svdFile": "${workspaceFolder}/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd", //
             "armToolchainPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin",
-            "gdbPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-gdb.exe",
             "objdumpPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-objdump.exe",
-            "nmPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-nm.exe",
             "serverpath": "C:\\Program Files\\SEGGER\\JLink_V862\\JLinkGDBServerCL.exe",
-            "showDevDebugOutput": "parsed"
+            "gdbPath": "C:\\Users\\212597558\\zephyr-sdk-0.17.2\\arm-zephyr-eabi\\bin\\arm-zephyr-eabi-gdb.exe",
+            "showDevDebugOutput": "none"  //none, parsed, raw
+        },
+        {
+            "name": "2nd CPP (gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/path/to/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+
+        },
+        {
+            "name": "3rd Python Debug test: current file",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
     ]
 }

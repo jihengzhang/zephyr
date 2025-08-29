@@ -1,5 +1,5 @@
 {
-    // it will be call by pre-launch in launch.json
+    // it will be call by pre-launch in launch.json // "preLaunchTask": "west build",
     "version": "2.0.0",
     "tasks": [
         {

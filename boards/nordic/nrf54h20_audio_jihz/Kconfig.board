@@ -1,0 +1,9 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_NRF54H20_AUDIO_JIHZ
+	bool "nRF54H20 Audio JIHZ"
+	depends on SOC_NRF54H20
+	select ARM
+	help
+	  Enable support for the custom nRF54H20 Audio JIHZ board.

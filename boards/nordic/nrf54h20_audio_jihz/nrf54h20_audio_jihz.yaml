@@ -1,0 +1,19 @@
+identifier: nrf54h20_audio_jihz
+name: nRF54H20 Audio JIHZ
+type: mcu
+arch: arm
+ram: 1024
+flash: 2048
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - uart
+  - gpio
+  - i2c
+  - spi
+  - usb_device
+  - ble
+  - watchdog
+  - pwm
+  - counter

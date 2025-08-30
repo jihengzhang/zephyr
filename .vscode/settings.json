@@ -6,22 +6,19 @@
             "args": [
                 "-NoExit", 
                 // "-Command",
-                "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\'; function Prompt { $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); $prefix = if ($isAdmin) { '🛡️ [ADMIN] ' } else { '>' }; $condaEnv = if ($env:CONDA_DEFAULT_ENV) { \"($env:CONDA_DEFAULT_ENV) \" } else { '' }; Write-Host $condaEnv -NoNewline -ForegroundColor Green; Write-Host \"[$env:COMPUTERNAME] $(Get-Location)$prefix\" -NoNewline -ForegroundColor $(if ($isAdmin) { 'Red' } else { 'Blue' }); return ' ' }"
+                // "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\'; function Prompt { $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); $prefix = if ($isAdmin) { '🛡️ [ADMIN] ' } else { '>' }; $condaEnv = if ($env:CONDA_DEFAULT_ENV) { \"($env:CONDA_DEFAULT_ENV) \" } else { '' }; Write-Host $condaEnv -NoNewline -ForegroundColor Green; Write-Host \"[$env:COMPUTERNAME] $(Get-Location)$prefix\" -NoNewline -ForegroundColor $(if ($isAdmin) { 'Red' } else { 'Blue' }); return ' ' }"
             ],
             "icon": "shield",
             "color": "terminal.ansiRed"
         },
         "PowerShell": {
-            "source": "PowerShell",
+            "path": "pwsh.exe",
             "args": [
-                "-NoExit",
+                // "-NoExit",
                 "-ExecutionPolicy", "Bypass",
-                // "-Command", 
-                // "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\'"
-                // ; $env:ZEPHYR_BASE = 'C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr'; $env:ZEPHYR_SDK_INSTALL_DIR = 'C:\\Users\\212597558\\zephyr-sdk-0.17.2'",
-                
+                "-NoProfile"                
             ],
-            "icon": "terminal-powershell"
+        //     "icon": "terminal-powershell"
         },
         "Command Prompt": {
             "path": [
@@ -29,6 +26,37 @@
                 "${env:windir}\\System32\\cmd.exe"
             ],
             "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": [
+                "--login", 
+                "-i",
+                "--init-file", 
+                "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr\\.vscode\\bash_init.sh"
+            ],
+            "icon": "terminal-bash"
+        },
+        "WSL Bash ok only when Linux installed": {
+            "path": "C:\\Windows\\System32\\wsl.exe",
+            "icon": "terminal-ubuntu"
+        },
+        "Conda Prompt": {
+            "path": "${env:windir}\\System32\\cmd.exe",
+            "args": [
+                "/k", 
+                "call C:\\Users\\212597558\\AI_Tools\\py_zephyr\\Scripts\\activate.bat C:\\Users\\212597558\\AI_Tools\\py_zephyr\\ && set ZEPHYR_BASE=C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr && echo Zephyr environment activated!"
+            ],
+            "icon": "symbol-misc"
+        },
+        "Python": {
+            "path": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
+            "args": [
+                "-i",
+                "-c", 
+                "import os; os.environ['ZEPHYR_BASE'] = 'C:\\\\Users\\\\212597558\\\\AI_Tools\\\\nRF54H\\\\zephyr_project\\\\zephyr'; print('Python environment ready!')"
+            ],
+            "icon": "terminal-python"
         }
     },
     "terminal.integrated.defaultProfile.windows": "PowerShell",

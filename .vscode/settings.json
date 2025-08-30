@@ -5,8 +5,9 @@
             "path": "pwsh.exe",
             "args": [
                 "-NoExit", 
-                // "-Command",
-                // "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\'; function Prompt { $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); $prefix = if ($isAdmin) { '🛡️ [ADMIN] ' } else { '>' }; $condaEnv = if ($env:CONDA_DEFAULT_ENV) { \"($env:CONDA_DEFAULT_ENV) \" } else { '' }; Write-Host $condaEnv -NoNewline -ForegroundColor Green; Write-Host \"[$env:COMPUTERNAME] $(Get-Location)$prefix\" -NoNewline -ForegroundColor $(if ($isAdmin) { 'Red' } else { 'Blue' }); return ' ' }"
+                "-Command",
+                "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\'"
+                // ; function Prompt { $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator); $prefix = if ($isAdmin) { '🛡️ [ADMIN] ' } else { '>' }; $condaEnv = if ($env:CONDA_DEFAULT_ENV) { \"($env:CONDA_DEFAULT_ENV) \" } else { '' }; Write-Host $condaEnv -NoNewline -ForegroundColor Green; Write-Host \"[$env:COMPUTERNAME] $(Get-Location)$prefix\" -NoNewline -ForegroundColor $(if ($isAdmin) { 'Red' } else { 'Blue' }); return ' ' }"
             ],
             "icon": "shield",
             "color": "terminal.ansiRed"
@@ -15,52 +16,15 @@
             "path": "pwsh.exe",
             "args": [
                 // "-NoExit",
-                "-ExecutionPolicy", "Bypass",
-                "-NoProfile"                
+                "-ExecutionPolicy", "Bypass"
+                // "-NoProfile"                
             ],
         //     "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
-            "args": [
-                "--login", 
-                "-i",
-                "--init-file", 
-                "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr\\.vscode\\bash_init.sh"
-            ],
-            "icon": "terminal-bash"
-        },
-        "WSL Bash ok only when Linux installed": {
-            "path": "C:\\Windows\\System32\\wsl.exe",
-            "icon": "terminal-ubuntu"
-        },
-        "Conda Prompt": {
-            "path": "${env:windir}\\System32\\cmd.exe",
-            "args": [
-                "/k", 
-                "call C:\\Users\\212597558\\AI_Tools\\py_zephyr\\Scripts\\activate.bat C:\\Users\\212597558\\AI_Tools\\py_zephyr\\ && set ZEPHYR_BASE=C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr && echo Zephyr environment activated!"
-            ],
-            "icon": "symbol-misc"
-        },
-        "Python": {
-            "path": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
-            "args": [
-                "-i",
-                "-c", 
-                "import os; os.environ['ZEPHYR_BASE'] = 'C:\\\\Users\\\\212597558\\\\AI_Tools\\\\nRF54H\\\\zephyr_project\\\\zephyr'; print('Python environment ready!')"
-            ],
-            "icon": "terminal-python"
         }
+
     },
     "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 16, //终端命令行字体大小
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.shell.windows": "pwsh.exe",
@@ -85,10 +49,12 @@
     "restructuredtext.linter.name": "rst-lint",
     "restructuredtext.preview.scrollEditorWithPreview": true,
     "restructuredtext.preview.scrollPreviewWithEditor": true,
+    "restructuredtext.languageServer.disabled": false,
     
     "[restructuredtext]": {
         "editor.tabSize": 3,
         "editor.rulers": [80]
     },
     "editor.fontSize": 16
+
 }

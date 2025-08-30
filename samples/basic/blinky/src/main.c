@@ -46,7 +46,7 @@ int main(void)
 			return 0;
 		}
 
-		led_state = !led_state;
+		led_state = !led_state; 
 		printf("LED state: %s\n", led_state ? "ON" : "OFF");
 		k_msleep(SLEEP_TIME_MS);
 		gpio_pin_toggle_dt(&led_r); //rgb = 010

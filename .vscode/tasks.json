@@ -5,17 +5,17 @@
         {
             "label": "west build",
             "type": "shell",
-            "command": "conda activate 'C:\\Users\\212597558\\AI_Tools\\py_zephyr\\' && west",
+            "command": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\Scripts\\west",
             "args": [
                 "build",
                 "-p",
-                "always",
+                "auto", //always auto
                 "-b",
                 "nrf5340_audio_dk/nrf5340/cpuapp",  //nrf5340_audio_dk/nrf5340/cpuapp
                 "samples/basic/blinky",
                 "--",
                 "-DCONFIG_DEBUG=y",
-                "-DCONFIG_NO_OPTIMIZATIONS=y"
+                "-DCONFIG_DEBUG_OPTIMIZATIONS=n"
             ],
             "options": {
                 "env": {

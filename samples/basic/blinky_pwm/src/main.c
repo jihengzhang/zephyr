@@ -43,7 +43,9 @@ int main(void)
 	 */
 	printk("Calibrating for channel %d...\n", pwm_led0.channel);
 	max_period = MAX_PERIOD;
-	while (pwm_set_dt(&pwm_led0, max_period, max_period / 2U)) {
+	int n;
+	n = pwm_set_dt(&pwm_led0, max_period, max_period / 10U);
+	while (n) {
 		max_period /= 2U;
 		if (max_period < (4U * MIN_PERIOD)) {
 			printk("Error: PWM device "
@@ -51,6 +53,7 @@ int main(void)
 			       4U * MIN_PERIOD);
 			return 0;
 		}
+		n = pwm_set_dt(&pwm_led0, max_period, max_period / 100U);
 	}
 
 	printk("Done calibrating; maximum/minimum periods %u/%lu nsec\n",
@@ -58,7 +61,7 @@ int main(void)
 
 	period = max_period;
 	while (1) {
-		ret = pwm_set_dt(&pwm_led0, period, period / 2U);
+		ret = pwm_set_dt(&pwm_led0, period, period / 10U);
 		if (ret) {
 			printk("Error %d: failed to set pulse width\n", ret);
 			return 0;

@@ -39,7 +39,11 @@ static struct gpio_dt_spec led = GPIO_DT_SPEC_GET_OR(DT_ALIAS(led0), gpios,
 void button_pressed(const struct device *dev, struct gpio_callback *cb,
 		    uint32_t pins)
 {
-	printk("Button pressed at %" PRIu32 "\n", k_cycle_get_32());
+	uint32_t ms = k_uptime_get() % (24 * 60 * 60 * 1000);
+	uint32_t h = ms / (60 * 60 * 1000);
+	uint32_t m = (ms / (60 * 1000)) % 60;
+	uint32_t s = (ms / 1000) % 60;
+	printk("System running for %02u:%02u:%02u\n", h, m, s);
 }
 
 int main(void)

@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "C:/Users/212597558/zephyr-sdk-0.17.2/arm-zephyr-eabi/arm-zephyr-eabi/include",
                 "C:/Users/212597558/AI_Tools/nRF54H/zephyr_project/zephyr/include",
-                "C:/Users/212597558/AI_Tools/nRF54H/zephyr_project/zephyr/soc/arm/common/cortex_m",
+                "C:/Users/212597558/AI_Tools/nRF54H/zephyr_project/zephyr/include/zephyr"
+                // "C:/Users/212597558/AI_Tools/nRF54H/zephyr_project/zephyr/soc/arm/common"
                 // 其他需要的路径
             ],
             "defines": [

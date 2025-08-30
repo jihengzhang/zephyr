@@ -29,32 +29,10 @@
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.shell.windows": "pwsh.exe",
     
-    "files.associations": {
-        "*.rst": "restructuredtext"
-    },
-    
     "workbench.editorAssociations": {
-        "*.copilotmd": "vscode.markdown.preview.editor",
-        // "*.rst": "restructuredtext.preview"
-        "*.rst": "default"
+        "*.copilotmd": "vscode.markdown.preview.editor"
     },
-    
-    "restructuredtext.conflictingExtensions": [
-        "tht13.rst-vscode",
-        "TatsuyaNakamori.resttext",
-        "CeresNorthPole.rst-lim"
-    ],
-    
-    "restructuredtext.confPath": "${workspaceFolder}/docs/source",
-    "restructuredtext.linter.name": "rst-lint",
-    "restructuredtext.preview.scrollEditorWithPreview": true,
-    "restructuredtext.preview.scrollPreviewWithEditor": true,
-    "restructuredtext.languageServer.disabled": false,
-    
-    "[restructuredtext]": {
-        "editor.tabSize": 3,
-        "editor.rulers": [80]
-    },
+
     "editor.fontSize": 16
 
 }

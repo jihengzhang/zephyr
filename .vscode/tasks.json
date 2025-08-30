@@ -12,7 +12,9 @@
                 "auto", //always auto
                 "-b",
                 "nrf5340_audio_dk/nrf5340/cpuapp",  //nrf5340_audio_dk/nrf5340/cpuapp
-                "samples/basic/blinky",
+                // "samples/basic/blinky",
+                // "samples/basic/blinky_pwm",
+                "samples/basic/button",
                 "--",
                 "-DCONFIG_DEBUG=y",
                 "-DCONFIG_DEBUG_OPTIMIZATIONS=n"

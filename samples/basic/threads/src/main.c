@@ -89,12 +89,12 @@ void blink(const struct led *led, uint32_t sleep_ms, uint32_t id)
 
 void blink0(void)
 {
-	blink(&led0, 100, 0);
+	blink(&led0, 2000, 0);
 }
 
 void blink1(void)
 {
-	blink(&led1, 1000, 1);
+	blink(&led1, 5000, 1);
 }
 
 void uart_out(void)

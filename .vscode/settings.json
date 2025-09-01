@@ -2,7 +2,7 @@
     "iis.configDir": "",
     "terminal.integrated.profiles.windows": {
         "PowerShell Admin": {
-            "path": "pwsh.exe",
+            "path": "'C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe'",
             "args": [
                 "-NoExit", 
                 "-Command",
@@ -13,7 +13,7 @@
             "color": "terminal.ansiRed"
         },
         "PowerShell": {
-            "path": "pwsh.exe",
+            "path": "'C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe'",
             "args": [
                 // "-NoExit",
                 "-ExecutionPolicy", "Bypass"

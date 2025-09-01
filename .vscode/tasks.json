@@ -18,10 +18,10 @@
                 "samples/bluetooth/hci_ipc",
                 "--",
                 "-DCONFIG_DEBUG=y",
-                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_broadcast-bt_ll_sw_split.conf'",  Bluetooth init failed (err -5)
+                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_broadcast-bt_ll_sw_split.conf'",  Bluetooth init failed (err -5) 
                 // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_central-bt_ll_sw_split.conf'", Failed to register ISO server -134
-                "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_peripheral-bt_ll_sw_split.conf'", 
-                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso-bt_ll_sw_split.conf'",
+                "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_peripheral-bt_ll_sw_split.conf'", //ok
+                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso-bt_ll_sw_split.conf'", 
                 "-DCONFIG_DEBUG_OPTIMIZATIONS=n"
             ],
             "options": {
@@ -48,7 +48,7 @@
                 // "-v",
                 "build",
                 "-p",
-                "auto", //always auto
+                "always", //always auto
                 "-b",
                 "nrf5340_audio_dk/nrf5340/cpuapp",  //nrf5340_audio_dk/nrf5340/cpuapp
                 // "--sysbuild",

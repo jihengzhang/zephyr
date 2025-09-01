@@ -2,6 +2,44 @@
     // it will be call by pre-launch in launch.json // "preLaunchTask": "west build",
     "version": "2.0.0",
     "tasks": [
+
+            {
+            "label": "mcunet_build",
+            "type": "shell",
+            "command": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\Scripts\\west",
+            "args": [
+                "build",
+                "-p",
+                "always",
+                "-b",
+                "nrf5340_audio_dk/nrf5340/cpunet",
+                "-d",   // build directory   west flash -d build-cpunet
+                "build-cpunet",
+                "samples/bluetooth/hci_ipc",
+                "--",
+                "-DCONFIG_DEBUG=y",
+                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_broadcast-bt_ll_sw_split.conf'",  Bluetooth init failed (err -5)
+                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_central-bt_ll_sw_split.conf'", Failed to register ISO server -134
+                "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso_peripheral-bt_ll_sw_split.conf'", 
+                // "-DEXTRA_CONF_FILE='nrf5340_cpunet_iso-bt_ll_sw_split.conf'",
+                "-DCONFIG_DEBUG_OPTIMIZATIONS=n"
+            ],
+            "options": {
+                "env": {
+                    "ZEPHYR_BASE": "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr",
+                    "ZEPHYR_SDK_INSTALL_DIR": "C:\\Users\\212597558\\zephyr-sdk-0.17.2"
+                    // "PYTHON_EXECUTABLE": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+
         {
             "label": "mcuapp_west_build",
             "type": "shell",
@@ -18,53 +56,20 @@
                 // "samples/basic/blinky_pwm",
                 // "samples/basic/button",
                 "samples/bluetooth/bap_unicast_server",
-                // "goals: build",
-                // "gen-args: -DEXTRA_CONF_FILE=overlay-bt_ll_sw_split.conf",
-                // "west-args: --sysbuild",
                 "--",
-                "-DCONFIG_DEBUG=y",
-                "-DCONFIG_DEBUG_OPTIMIZATIONS=n"
-            ],
-            "options": {
-                "env": {
-                    "ZEPHYR_BASE": "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr",
-                    "ZEPHYR_SDK_INSTALL_DIR": "C:\\Users\\212597558\\zephyr-sdk-0.17.2",
-                    // "PYTHON": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
-                    // "PYTHONPATH": "C:\\Users\\212597558\\AI_Tools\\py_zephyr",
-                    // "PYTHONHOME": "C:\\Users\\212597558\\AI_Tools\\py_zephyr"
-                    // "PYTHON_EXECUTABLE": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe"
-                }
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
-            "label": "mcunet_build",
-            "type": "shell",
-            "command": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\Scripts\\west",
-            "args": [
-                "build",
-                "-p",
-                "auto",
-                "-b",
-                "nrf5340_audio_dk/nrf5340/cpunet",
-                "-d",   // build directory   west flash -d build-cpunet
-                "build-cpunet",
-                "samples/bluetooth/hci_ipc",
-                "--",
-                "-DCONFIG_DEBUG=y",
-                "-DCONFIG_DEBUG_OPTIMIZATIONS=n"
+                "-DCONFIG_DEBUG=n",
+                "-DCONFIG_DEBUG_OPTIMIZATIONS=y"
             ],
             "options": {
                 "env": {
                     "ZEPHYR_BASE": "C:\\Users\\212597558\\AI_Tools\\nRF54H\\zephyr_project\\zephyr",
                     "ZEPHYR_SDK_INSTALL_DIR": "C:\\Users\\212597558\\zephyr-sdk-0.17.2"
-                    // "PYTHONEXECUTABLE": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe"
+                    // "PYTHON": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
+                    // "PYTHONPATH": "C:\\Users\\212597558\\AI_Tools\\py_zephyr",
+                    // "PYTHONHOME": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe"
+                    // "PYTHON_EXECUTABLE": "C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
+                    // "WEST_CMAKE_ARGS": "-DPYTHON_EXECUTABLE=C:\\Users\\212597558\\AI_Tools\\py_zephyr\\python.exe",
+                    // "CMAKE_PROGRAM_PATH": "C:\\Users\\212597558\\AI_Tools\\py_zephyr"
                 }
             },
             "group": {
@@ -75,5 +80,6 @@
                 "$gcc"
             ]
         }
+
     ]
 }

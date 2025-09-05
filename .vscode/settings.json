@@ -33,6 +33,10 @@
         "*.copilotmd": "vscode.markdown.preview.editor"
     },
 
-    "editor.fontSize": 16
+    "editor.fontSize": 16,
+    "idf.flashType": "UART",
+    "nrf-connect.applications": [
+        "${workspaceFolder}\\samples\\bluetooth\\hci_ipc"
+    ]
 
 }

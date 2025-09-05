@@ -5,7 +5,7 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(bap_unicast_server)
 
 target_sources(app PRIVATE
-  src/main.c
+  src/BT_app_main.c
 )
 
 zephyr_library_include_directories(${ZEPHYR_BASE}/samples/bluetooth)

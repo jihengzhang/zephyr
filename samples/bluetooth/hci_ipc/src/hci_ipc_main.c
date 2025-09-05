@@ -210,6 +210,11 @@ static void tx_thread(void *p1, void *p2, void *p3)
 		/* Wait until a buffer is available */
 		buf = k_fifo_get(&tx_queue, K_FOREVER);
 		/* Pass buffer to the stack */
+		printk("Sending buffer: %p, len: %u\n", buf, buf->len);
+		for (uint16_t i = 0; i < buf->len; i++) {
+			printk("%02X ", buf->data[i]);
+		}
+		printk("\n");
 		err = bt_send(buf);
 		if (err) {
 			LOG_ERR("Unable to send (err %d)", err);

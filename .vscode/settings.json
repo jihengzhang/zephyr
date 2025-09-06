@@ -36,7 +36,9 @@
     "editor.fontSize": 16,
     "idf.flashType": "UART",
     "nrf-connect.applications": [
-        "${workspaceFolder}\\samples\\bluetooth\\hci_ipc"
+        "${workspaceFolder}\\samples\\bluetooth\\hci_ipc",
+        "${workspaceFolder}\\samples\\application_development\\code_relocation_nocopy",
+        "${workspaceFolder}\\samples\\bluetooth\\direction_finding_peripheral"
     ]
 
 }
